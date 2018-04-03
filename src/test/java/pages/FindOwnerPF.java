@@ -9,7 +9,7 @@ public class FindOwnerPF {
     @FindBy (id = "lastName")
     private WebElement ownerField;
 
-    @FindBy (linkText = "Find")
+    @FindBy (xpath = "//button[@type='submit']")
     private WebElement findOwnerButton;
 
     @FindBy (linkText = "Add Owner")

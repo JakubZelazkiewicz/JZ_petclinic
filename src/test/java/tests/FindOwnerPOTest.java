@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -26,13 +27,15 @@ public class FindOwnerPOTest {
         driver.manage().window().maximize();
         driver.get("http://localhost:8080/owners/find");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
          }
+
+    @After
+    public void tearDown() {
+        driver.quit(); }
 
     @Test
     public void findOwnerTestNegative() {
         FindOwnerPO findTest = new FindOwnerPO(driver);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         findTest.sendNameNegative();
         findTest.clickFindOwnerButton();
         String commentTextN = findTest.getTextNotFound().getText();
